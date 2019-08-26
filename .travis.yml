@@ -18,17 +18,17 @@ addons:
     sources: 
       - ubuntu-toolchain-r-test
     packages:
-      - gcc-8
-      - g++-8
-      - gfortran-8
+      - gcc-5
+      - g++-5
+      - gfortran-5
 
 env:
   global:
     - _R_CHECK_FORCE_SUGGESTS_=true
     - MAKEFLAGS="-j 2"
-    - COMPILER=g++-8
-    - CC=gcc-8
-    - CXX=g++-8
+    - COMPILER=g++-5
+    - CC=gcc-5
+    - CXX=g++-5
 
 repos:
   CRAN: https://cloud.r-project.org
@@ -36,7 +36,7 @@ repos:
 
 before_install:
   - mkdir -p ~/.R && touch ~/.R/Makevars
-  - VER=-8
+  - VER=-5
   - echo "CC=gcc$(VER)" >> ~/.R/Makevars
   - echo "CXX=g++$(VER)" >> ~/.R/Makevars
   - echo "CXX1X=g++$(VER)" >> ~/.R/Makevars
