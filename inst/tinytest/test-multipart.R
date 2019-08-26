@@ -25,7 +25,7 @@ expect_equal(parse_multipart_body(raw(), character(1)), list())
 
 # Test parse_multipart_body
 # text file
-tmp_txt = system.file("DESCRIPTION", package = "RestRserve")
+tmp_txt = system.file("DESCRIPTION", package = "rcpptravis")
 # rds file
 tmp_rds = tempfile(fileext = ".rds")
 saveRDS(letters, tmp_rds)

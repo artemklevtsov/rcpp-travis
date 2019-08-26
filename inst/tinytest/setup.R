@@ -1,14 +1,3 @@
-# get example application
-ex_app = function(name) {
-  app_file = system.file("examples", name, "app.R", package = "RestRserve")
-  if (!file.exists(app_file)) {
-    stop("app does not exists")
-  }
-  app_env = .GlobalEnv
-  sys.source(app_file, app_env, chdir = TRUE)
-  return(app_env[["app"]])
-}
-
 # genearate multipart binary body
 make_multipart_body = function(params, files) {
   # write character as raw
