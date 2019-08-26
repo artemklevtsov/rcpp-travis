@@ -13,7 +13,35 @@ format_cookies <- function(cookies) {
     .Call(`_rcpptravis_format_cookies`, cookies)
 }
 
+format_headers <- function(x) {
+    .Call(`_rcpptravis_format_headers`, x)
+}
+
+parse_multipart_boundary <- function(content_type) {
+    .Call(`_rcpptravis_parse_multipart_boundary`, content_type)
+}
+
+parse_multipart_body <- function(body, boundary) {
+    .Call(`_rcpptravis_parse_multipart_body`, body, boundary)
+}
+
+parse_cookies <- function(x) {
+    .Call(`_rcpptravis_parse_cookies`, x)
+}
+
+parse_headers <- function(headers) {
+    .Call(`_rcpptravis_parse_headers`, headers)
+}
+
 do_stop_impl <- function() {
     invisible(.Call(`_rcpptravis_do_stop_impl`))
+}
+
+url_decode <- function(x) {
+    .Call(`_rcpptravis_url_decode`, x)
+}
+
+url_encode <- function(x) {
+    .Call(`_rcpptravis_url_encode`, x)
 }
 
