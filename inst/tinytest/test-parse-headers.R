@@ -1,7 +1,7 @@
 # Test parse headers
 
 # import functions
-parse_headers = RestRserve:::parse_headers
+parse_headers = rcpptravis:::parse_headers
 
 # Empty input
 expect_error(parse_headers(NA))

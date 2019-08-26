@@ -1,7 +1,7 @@
 # Test format headers
 
 # import functions
-format_headers = RestRserve:::format_headers
+format_headers = rcpptravis:::format_headers
 
 # Empty object
 expect_equal(format_headers(NULL), "")

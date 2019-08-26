@@ -3,8 +3,8 @@
 source("setup.R")
 
 # import functions
-parse_multipart_boundary = RestRserve:::parse_multipart_boundary
-parse_multipart_body = RestRserve:::parse_multipart_body
+parse_multipart_boundary = rcpptravis:::parse_multipart_boundary
+parse_multipart_body = rcpptravis:::parse_multipart_body
 
 # Test parse_multipart_boundary with empty object
 expect_error(parse_multipart_boundary(NULL))

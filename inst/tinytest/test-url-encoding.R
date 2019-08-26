@@ -1,8 +1,8 @@
 # Test URL encoding
 
 # import functions
-url_encode = RestRserve:::url_encode
-url_decode = RestRserve:::url_decode
+url_encode = rcpptravis:::url_encode
+url_decode = rcpptravis:::url_decode
 
 text = c("Hello, World", "Hello Günter")
 
