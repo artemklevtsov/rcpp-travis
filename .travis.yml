@@ -44,3 +44,7 @@ before_install:
   - echo "F77=gfortran${VER}" >> ~/.R/Makevars
   - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc${VER} 60 --slave /usr/bin/g++ g++ /usr/bin/g++${VER}
   - sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran${VER} 60
+
+after_script:
+  - R CMD INSTALL ${PKG_TARBALL}
+  - Rscript -e 'tinytest::test_package("rcpptravis")'
