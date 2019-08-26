@@ -1,6 +1,6 @@
 # rcpptravis
 
-[![Travis-CI Build Status](https://travis-ci.org/artemklevtsov/rcpp-travis.svg?branch=dev)](https://travis-ci.org/artemklevtsov/rcpp-travis)
+[![Travis-CI Build Status](https://travis-ci.org/artemklevtsov/rcpp-travis.svg?branch=master)](https://travis-ci.org/artemklevtsov/rcpp-travis)
 
 The goal of rcpptravis is to ...
 
