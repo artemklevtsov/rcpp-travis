@@ -5,16 +5,8 @@ warnings_are_errors: false
 r_build_args: --no-build-vignettes --no-manual
 r_check_args: --no-vignettes --no-manual --timings --as--cran
 
-env:
-  global:
-    - _R_CHECK_FORCE_SUGGESTS_=true
-
-repos:
-  CRAN: https://cloud.r-project.org
-  rforge: http://rforge.net
-
-matrix:
-  - r: release
+r:
+  - release
 
 compiler:
   - gcc
@@ -24,10 +16,25 @@ apt_packages:
   - g++-5
   - gfortran-5
 
+env:
+  global:
+    - _R_CHECK_FORCE_SUGGESTS_=true
+    - MAKEFLAGS="-j 2"
+    - COMPILER=g++-5
+    - CC=gcc-5
+    - CXX=g++-5
+
+repos:
+  CRAN: https://cloud.r-project.org
+  rforge: http://rforge.net
+
 before_install:
-  - mkdir ~/.R
-  - echo "CXX11=g++-5" > ~/.R/Makevars
-  - echo "CXX=g++-5" >> ~/.R/Makevars
-  - echo "CXX1X=g++-5" >> ~/.R/Makevars
-  - echo "CC=gcc-5" >> ~/.R/Makevars
-  - echo 'CFLAGS+="-std=gnu99"' >> ~/.R/Makevars
+  - mkdir -p ~/.R && touch ~/.R/Makevars
+  - VER=-5
+  - echo "CC=gcc$(VER)" >> ~/.R/Makevars
+  - echo "CXX=g++$(VER)" >> ~/.R/Makevars
+  - echo "CXX1X=g++$(VER)" >> ~/.R/Makevars
+  - echo "FC=gfortran$(VER)" >> ~/.R/Makevars
+  - echo "F77=gfortran$(VER)" >> ~/.R/Makevars
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc${VER} 60 --slave /usr/bin/g++ g++ /usr/bin/g++${VER}
+  - sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran${VER} 60
