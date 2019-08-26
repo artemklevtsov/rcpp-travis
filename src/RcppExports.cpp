@@ -5,6 +5,16 @@
 
 using namespace Rcpp;
 
+// format_cookies
+Rcpp::CharacterVector format_cookies(Rcpp::ListOf<Rcpp::List> cookies);
+RcppExport SEXP _rcpptravis_format_cookies(SEXP cookiesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< Rcpp::ListOf<Rcpp::List> >::type cookies(cookiesSEXP);
+    rcpp_result_gen = Rcpp::wrap(format_cookies(cookies));
+    return rcpp_result_gen;
+END_RCPP
+}
 // do_stop_impl
 void do_stop_impl();
 RcppExport SEXP _rcpptravis_do_stop_impl() {
@@ -15,6 +25,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_rcpptravis_format_cookies", (DL_FUNC) &_rcpptravis_format_cookies, 1},
     {"_rcpptravis_do_stop_impl", (DL_FUNC) &_rcpptravis_do_stop_impl, 0},
     {NULL, NULL, 0}
 };
