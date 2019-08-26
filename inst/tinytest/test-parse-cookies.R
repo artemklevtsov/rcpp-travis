@@ -1,7 +1,7 @@
 # Test parse cookies
 
 # import functions
-parse_cookies = RestRserve:::parse_cookies
+parse_cookies = rcpptravis:::parse_cookies
 
 # Empty input
 expect_error(parse_cookies(NULL))
