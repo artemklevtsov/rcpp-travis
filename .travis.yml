@@ -1,5 +1,7 @@
 language: r
 sudo: false
+latex: false
+pandoc: false
 cache: packages
 warnings_are_errors: false
 r_build_args: --no-build-vignettes --no-manual
@@ -11,22 +13,22 @@ r:
 compiler:
   - gcc
 
-addons:
-  apt:
+addons:
+  apt:
     sources: 
       - ubuntu-toolchain-r-test
-    packages:
-      - gcc-5
-      - g++-5
-      - gfortran-5
+    packages:
+      - gcc-8
+      - g++-8
+      - gfortran-8
 
 env:
   global:
     - _R_CHECK_FORCE_SUGGESTS_=true
     - MAKEFLAGS="-j 2"
-    - COMPILER=g++-5
-    - CC=gcc-5
-    - CXX=g++-5
+    - COMPILER=g++-8
+    - CC=gcc-8
+    - CXX=g++-8
 
 repos:
   CRAN: https://cloud.r-project.org
@@ -34,7 +36,7 @@ repos:
 
 before_install:
   - mkdir -p ~/.R && touch ~/.R/Makevars
-  - VER=-5
+  - VER=-8
   - echo "CC=gcc$(VER)" >> ~/.R/Makevars
   - echo "CXX=g++$(VER)" >> ~/.R/Makevars
   - echo "CXX1X=g++$(VER)" >> ~/.R/Makevars
